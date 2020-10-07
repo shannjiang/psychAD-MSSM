@@ -10,7 +10,6 @@ hbcc_filtered = hbcc[hbcc$Mass..mg.>=10 &
                        !is.na(hbcc$Sex) & 
                        !is.na(hbcc$ageOfDeath) & 
                        hbcc$PMI..in.hours.<=48 & 
-                       hbcc$rnaSeq_isolation.RIN>=6 & 
                        !is.na(hbcc$CMC_Brain_ID) & 
                        hbcc$Dx!="undetermined",]
 hbcc_filtered = hbcc_filtered[order(hbcc_filtered$Brain.ID, -abs(hbcc_filtered$Mass..mg.) ), ] 
@@ -37,5 +36,17 @@ rush_filtered = data.frame(SubID = rush$Projid, Institution = "RUSH", BrainRegio
 
 merged = rbind(hbcc_filtered, mssm_filtered, rush_filtered)
 set.seed(nrow(merged))
-merged$randnum = runif(nrow(merged))
-merged = merged[order(merged$randnum),]
+merged$ranknum = runif(nrow(merged))
+merged = merged[order(merged$ranknum),]
+merged$ranknum = c(1:nrow(merged))
+write.csv(merged, file = "randomized_merged_list_snRNAseq_profiling.csv")
+
+## upload on synapse
+file <- synStore(File(path = "randomized_merged_list_snRNAseq_profiling.csv", parent = "syn22399913"),
+               used = list(list(name = "HBCC dissection data", url = "https://www.synapse.org/#!Synapse:syn22977958", wasExecuted = FALSE),
+                           list(name = "MSSM dissection data", url = "https://www.synapse.org/#!Synapse:syn22800932", wasExecuted = FALSE),
+                           list(name = "RUSH dissection data", url = "https://www.synapse.org/#!Synapse:syn22981925", wasExecuted = FALSE),
+                           list(name = "Merged dissection data", url = "https://github.com/roussosp/psychAD-MSSM/blob/master/Analysis_Randomize_samples.R", wasExecuted = TRUE)),
+               activityName = "Merge dissection IDs and randomize list",
+               activityDescription = "Create final randomized list of dissection IDs. DLPFC was included in the analysis and consider tissue with PMI<48 hours")
+
