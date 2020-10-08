@@ -175,7 +175,7 @@ file <- synStore(File(path = "VA_BR_Clinical_combo_matched_CMC_AMPAD_10082020.cs
 						   list(name = "CMC_snp_meta", url = "https://www.synapse.org/#!Synapse:syn16816490", wasExecuted = FALSE),
 						   list(name = "CMC_WGS_meta", url = "https://www.synapse.org/#!Synapse:syn16816491", wasExecuted = FALSE),
 						   list(name = "VA_brain_tissue_received_data", url = "https://www.synapse.org/#!Synapse:syn23003001", wasExecuted = FALSE),
-                           list(name = "Merged VA final data", url = "https://github.com/roussosp/psychAD-MSSM/blob/master/Analysis_Randomize_samples.R", wasExecuted = TRUE)),
+                           list(name = "Merged VA final data", url = "https://github.com/shannjiang/psychAD-MSSM/blob/master/VA_Clinical_Brain_region_merging_synapse_v2.r", wasExecuted = TRUE)),
                activityName = "Merge VA clinical and brain tissue data",
                activityDescription = "Create the final merged VA clinical and brain tissue data")
 
