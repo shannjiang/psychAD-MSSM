@@ -22,7 +22,7 @@ hbcc_filtered = data.frame(SubID = hbcc_filtered$Brain.ID, Institution = "HBCC",
 
 
 mssm_filtered = mssm[mssm$PMI<=48*60 &
-                       !is.na(mssm$Batch1_Barcode),]
+                       !is.na(mssm$Barcode_received),]
 mssm_filtered = mssm_filtered[ !duplicated(mssm_filtered$SubNum), ]     
 
 mssm_filtered = data.frame(SubID = mssm_filtered$SubNum, Institution = "MSSM", BrainRegion = mssm_filtered$Batch1_Brain.Region,
