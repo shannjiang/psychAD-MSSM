@@ -53,8 +53,8 @@ file <- synStore(File(path = "HBCC_assay_data_matched_with_CMC_09282020.csv", pa
                used = list(list(name = "HBCC_atacseq_data", url = "https://www.synapse.org/#!Synapse:syn23006232", wasExecuted = FALSE),
                            list(name = "HBCC_chipseq_data", url = "https://www.synapse.org/#!Synapse:syn23006230", wasExecuted = FALSE),
                            list(name = "CMC_clinical_data", url = "https://www.synapse.org/#!Synapse:syn2279441", wasExecuted = FALSE),
-						   list(name = "CMC_rnaseq_meta", url = "https://www.synapse.org/#!Synapse:syn16816488", wasExecuted = FALSE),
-                           list(name = "HBCC atacseq chipseq merged data", url = "https://github.com/shannjiang/psychAD-MSSM/blob/master/VA_Clinical_Brain_region_merging_synapse_v2.r", wasExecuted = TRUE)),
+			   list(name = "CMC_rnaseq_meta", url = "https://www.synapse.org/#!Synapse:syn16816488", wasExecuted = FALSE),
+                           list(name = "HBCC atacseq chipseq merged data", url = "https://github.com/shannjiang/psychAD-MSSM/blob/master/HBCC_atacseq_chipseq_merging_synpase.r", wasExecuted = TRUE)),
                activityName = "Merge HBCC atacseq chipseq merged data",
                activityDescription = "Create the merged HBCC atacseq and chipseq data")
 
