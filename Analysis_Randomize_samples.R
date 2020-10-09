@@ -2,7 +2,7 @@ library(synapser)
 synLogin() 
 
 # Obtain a pointer and download the data 
-mssm = read.csv(synGet(entity='syn22800932')$path)
+mssm = read.csv(synGet(entity='syn23001492')$path)
 hbcc = read.csv(synGet(entity='syn22977958')$path)
 rush = read.csv(synGet(entity='syn22981925')$path)
 
