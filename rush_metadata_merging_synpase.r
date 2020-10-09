@@ -9,7 +9,8 @@ rush_basic_data = read.csv(synGet(entity='syn23015568')$path, header = T)
 rush_corecases_data = read.csv(synGet(entity='syn23015567')$path, header = T)
 
 #combine
-rush_corecases4basic = rush_corecases_data[,!(colnames(rush_corecases_data) %in% colnames(rush_basic_data))]
+rush_corecases4basic = as.data.frame(rush_corecases_data[,!(colnames(rush_corecases_data) %in% colnames(rush_basic_data))])
+colnames(rush_corecases4basic) = 'race'
 rush_corecases4basic = cbind(rush_corecases_data$projid, rush_corecases4basic)
 colnames(rush_corecases4basic)[1] = "projid"
 rush_basic4corecases = rush_basic_data[,!(colnames(rush_basic_data) %in% colnames(rush_corecases_data))]
